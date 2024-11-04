@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Stastics from "../pages/Stastics";
 import Dashboard from "../pages/Dashboard";
 import Blog from "../pages/Blog";
+import ProductPage from "../components/HomePageComponent/products/ProductPage";
 
 const route = createBrowserRouter([
     {
@@ -12,7 +13,14 @@ const route = createBrowserRouter([
       children:[
         {
           path: "/",
-          element: <Home/>
+          element: <Home/>,
+          children: [
+            {
+              path: "/",
+              element: <ProductPage/>,
+              loader:()=>fetch('../../public/products.json')
+            }
+          ]
       },
       {
         path: "/stastics",

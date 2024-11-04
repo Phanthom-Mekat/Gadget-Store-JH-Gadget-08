@@ -1,0 +1,274 @@
+[
+    {
+        "product_id": 1,
+        "product_title": "Apple MacBook Pro 16-inch",
+        "product_image": "https://i.pinimg.com/236x/74/7d/c1/747dc1912339972191f0f8c077a82dff.jpg",
+        "category": "MacBook",
+        "price": 2499,
+        "description": "The new MacBook Pro with M1 Pro chip offers powerful performance, incredible battery life, and vibrant display quality.",
+        "specification": {
+            "Processor": "M1 Pro chip",
+            "RAM": "16GB",
+            "Storage": "512GB SSD",
+            "Display": "16-inch Retina",
+            "Battery Life": "Up to 21 hours"
+        },
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": 2,
+        "product_title": "Samsung Galaxy S21 Ultra",
+        "product_image": "https://i.pinimg.com/236x/7e/2f/55/7e2f55abc4c99835ca8c05bd8cef300a.jpg",
+        "category": "Phones",
+        "price": 1199,
+        "description": "Samsung's latest flagship smartphone with a 108MP camera, 5G connectivity, and a stunning 6.8-inch display.",
+        "specification": {
+            "Processor": "Exynos 2100",
+            "RAM": "12GB",
+            "Storage": "128GB",
+            "Camera": "108MP + 12MP + 10MP + 10MP",
+            "Battery": "5000mAh"
+        },
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": 3,
+        "product_title": "Sony WH-1000XM4 Headphones",
+        "product_image": "https://i.pinimg.com/474x/d4/84/be/d484be7ea9e3ce607b336cd8d5f6fe7d.jpg",
+        "category": "Accessories",
+        "price": 349,
+        "description": "Noise-cancelling wireless headphones with exceptional sound quality and 30 hours of battery life.",
+        "specification": {
+            "Battery Life": "30 hours",
+            "Noise Cancellation": "Active Noise Cancellation",
+            "Connectivity": "Bluetooth 5.0",
+            "Weight": "254 grams",
+            "Warranty": "1 year"
+        },
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": 4,
+        "product_title": "Apple iPhone 13 Pro",
+        "product_image": "https://i.pinimg.com/236x/15/59/57/1559579c4c4b933ef63b07dba4c9d098.jpg",
+        "category": "Iphone",
+        "price": 999,
+        "description": "Experience the latest in mobile technology with the iPhone 13 Pro, featuring an A15 Bionic chip and Pro camera system.",
+        "specification": {
+            "Processor": "A15 Bionic",
+            "Display": "6.1-inch Super Retina XDR",
+            "Camera": "12MP Pro camera system",
+            "Storage": "128GB",
+            "Battery": "Up to 22 hours"
+        },
+        "availability": false,
+        "rating": 4.9
+    },
+    {
+        "product_id": 5,
+        "product_title": "Garmin Venu 2 Smart Watch",
+        "product_image": "https://i.pinimg.com/236x/1a/17/0b/1a170bb0819eac06817c303ec8f30c5d.jpg",
+        "category": "Smart Watches",
+        "price": 399,
+        "description": "Smartwatch with fitness tracking, health monitoring, and up to 11 days of battery life.",
+        "specification": {
+            "Display": "AMOLED, 1.3 inches",
+            "Battery Life": "Up to 11 days",
+            "Water Resistance": "5 ATM",
+            "Connectivity": "Bluetooth, Wi-Fi, GPS",
+            "Sensors": "Heart Rate, Pulse Ox, Sleep Tracking"
+        },
+        "availability": true,
+        "rating": 4.5
+    },
+    {
+        "product_id": 6,
+        "product_title": "Dell XPS 13 Laptop",
+        "product_image": "https://i.pinimg.com/236x/f5/95/1b/f5951b5564d563e51f53a5cdec268815.jpg",
+        "category": "Laptops",
+        "price": 1099,
+        "description": "A powerful and compact laptop with an InfinityEdge display, Intel i7 processor, and long battery life.",
+        "specification": {
+            "Processor": "Intel Core i7-1165G7",
+            "RAM": "16GB",
+            "Storage": "512GB SSD",
+            "Display": "13.4-inch FHD+",
+            "Battery Life": "Up to 12 hours"
+        },
+        "availability": true,
+        "rating": 4.7
+    },
+        {
+            "product_id": 7,
+            "product_title": "Google Pixel 6 Pro",
+            "product_image": "https://i.pinimg.com/236x/e7/32/d5/e732d532c7549e4b6614d2ddd872d102.jpg",
+            "category": "Phones",
+            "price": 899,
+            "description": "Google's flagship phone with the new Google Tensor chip, 50MP camera, and smooth 120Hz display.",
+            "specification": {
+                "Processor": "Google Tensor",
+                "RAM": "12GB",
+                "Storage": "128GB",
+                "Camera": "50MP wide + 12MP ultrawide + 48MP telephoto",
+                "Battery": "5003mAh"
+            },
+            "availability": true,
+            "rating": 4.8
+        },
+        {
+            "product_id": 8,
+            "product_title": "Sony PlayStation 5",
+            "product_image": "https://i.pinimg.com/236x/cd/43/67/cd43672a63f6356bd4199d4ae6d1d480.jpg",
+            "category": "Accessories",
+            "price": 499,
+            "description": "Next-generation gaming console with 4K graphics and ray tracing support.",
+            "specification": {
+                "CPU": "AMD Zen 2",
+                "GPU": "RDNA 2",
+                "RAM": "16GB GDDR6",
+                "Storage": "825GB SSD",
+                "Resolution": "4K"
+            },
+            "availability": false,
+            "rating": 4.9
+        },
+        {
+            "product_id": 9,
+            "product_title": "Bose QuietComfort 35 II",
+            "product_image": "https://i.pinimg.com/236x/20/38/29/20382909d1d4f14f517f0ac347706526.jpg",
+            "category": "Accessories",
+            "price": 299,
+            "description": "High-quality wireless headphones with noise cancellation and Alexa voice control.",
+            "specification": {
+                "Battery Life": "20 hours",
+                "Noise Cancellation": "Active Noise Cancellation",
+                "Connectivity": "Bluetooth, NFC",
+                "Weight": "240 grams",
+                "Warranty": "1 year"
+            },
+            "availability": true,
+            "rating": 4.6
+        },
+        {
+            "product_id": 10,
+            "product_title": "Apple iPad Pro 11-inch",
+            "product_image": "https://i.pinimg.com/236x/87/cb/db/87cbdbe4042e550e4bb40eee9ae23026.jpg",
+            "category": "Accessories",
+            "price": 799,
+            "description": "11-inch iPad Pro with M1 chip, Liquid Retina display, and Apple Pencil support.",
+            "specification": {
+                "Processor": "M1",
+                "Display": "11-inch Liquid Retina",
+                "Storage": "128GB",
+                "Battery Life": "Up to 10 hours",
+                "Camera": "12MP wide, 10MP ultrawide"
+            },
+            "availability": true,
+            "rating": 4.8
+        },
+        {
+            "product_id": 11,
+            "product_title": "Dell Ultrasharp 27 Monitor",
+            "product_image": "https://i.pinimg.com/236x/d4/cd/7d/d4cd7daf7b63160b825040c395182963.jpg",
+            "category": "Accessories",
+            "price": 459,
+            "description": "27-inch QHD monitor with ultra-thin bezels and excellent color accuracy.",
+            "specification": {
+                "Resolution": "2560 x 1440",
+                "Panel Type": "IPS",
+                "Refresh Rate": "60Hz",
+                "Response Time": "5ms",
+                "Connectivity": "HDMI, DisplayPort, USB-C"
+            },
+            "availability": true,
+            "rating": 4.7
+        },
+        {
+            "product_id": 12,
+            "product_title": "Amazon Echo (4th Gen)",
+            "product_image": "https://i.pinimg.com/236x/a3/cb/70/a3cb70caab31023128a1deed96c1f67b.jpg",
+            "category": "Accessories",
+            "price": 99,
+            "description": "Smart speaker with Alexa and high-quality sound, featuring a spherical design.",
+            "specification": {
+                "Speaker": "3.0-inch woofer, dual 0.8-inch tweeters",
+                "Connectivity": "Wi-Fi, Bluetooth",
+                "Voice Assistant": "Alexa",
+                "Smart Home": "Compatible with Zigbee devices"
+            },
+            "availability": true,
+            "rating": 4.5
+        },
+        {
+            "product_id": 13,
+            "product_title": "Asus ROG Zephyrus G14",
+            "product_image": "https://i.pinimg.com/736x/57/32/98/573298aa6acd841082b4a198b719cf82.jpg",
+            "category": "Laptops",
+            "price": 1499,
+            "description": "Powerful gaming laptop with AMD Ryzen 9 and Nvidia GeForce RTX 3060.",
+            "specification": {
+                "Processor": "AMD Ryzen 9 5900HS",
+                "RAM": "16GB",
+                "Storage": "1TB SSD",
+                "GPU": "Nvidia GeForce RTX 3060",
+                "Display": "14-inch WQHD, 120Hz"
+            },
+            "availability": true,
+            "rating": 4.8
+        },
+        {
+            "product_id": 14,
+            "product_title": "Apple AirPods Max",
+            "product_image": "https://i.pinimg.com/236x/aa/02/4a/aa024aae1185bf1ea6ee952dfea2a07a.jpg",
+            "category": "Accessories",
+            "price": 549,
+            "description": "High-fidelity over-ear headphones with active noise cancellation and spatial audio.",
+            "specification": {
+                "Battery Life": "20 hours",
+                "Noise Cancellation": "Active Noise Cancellation",
+                "Connectivity": "Bluetooth",
+                "Weight": "384 grams",
+                "Warranty": "1 year"
+            },
+            "availability": false,
+            "rating": 4.6
+        },
+        {
+            "product_id": 15,
+            "product_title": "HP Spectre x360 13",
+            "product_image": "https://i.pinimg.com/236x/79/63/5d/79635d9549e6d7bd280b6e5376b4261f.jpg",
+            "category": "Laptops",
+            "price": 1299,
+            "description": "Convertible laptop with Intel Core i7 and vibrant 13.3-inch OLED display.",
+            "specification": {
+                "Processor": "Intel Core i7-1165G7",
+                "RAM": "16GB",
+                "Storage": "512GB SSD",
+                "Display": "13.3-inch OLED, 4K",
+                "Battery Life": "Up to 10 hours"
+            },
+            "availability": true,
+            "rating": 4.7
+        },
+        {
+            "product_id": 16,
+            "product_title": "Logitech MX Master 3",
+            "product_image": "https://i.pinimg.com/236x/d2/4e/08/d24e0890595d9bf519bd5d3f07f787d1.jpg",
+            "category": "Accessories",
+            "price": 99,
+            "description": "Ergonomic wireless mouse with advanced features for productivity.",
+            "specification": {
+                "Battery Life": "70 days on a single charge",
+                "Connectivity": "Bluetooth, USB-C",
+                "DPI": "4000",
+                "Weight": "141 grams",
+                "Warranty": "1 year"
+            },
+            "availability": true,
+            "rating": 4.8
+        }
+    
+]
