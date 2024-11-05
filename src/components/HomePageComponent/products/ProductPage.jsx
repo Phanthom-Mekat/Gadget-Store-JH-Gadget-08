@@ -43,7 +43,7 @@ const ProductPage = () => {
             setFilteredProducts(productsData);
         } else {
             setFilteredProducts(
-                productsData.filter((product) => product.category === selectedCategory)
+            productsData &&   productsData.filter((product) => product.category === selectedCategory)
             );
         }
     }, [selectedCategory, productsData]);

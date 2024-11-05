@@ -1,53 +1,59 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import ReuseableHero from "./ReuseableHero";
 import { addToCartContext } from "../addToCartContexnt";
-
 
 const ProductDetails = () => {
     const product = useLoaderData();
     const { product_id } = useParams();
-    
     const [details, setDetails] = useState({});
     
-    const {carts,setCart} = useContext(addToCartContext);
-    const {wishlist,setWishlist}=useContext(addToCartContext)
+    const { carts, setCart, wishlist, setWishlist,subtotal,cartCount,wishlistCount,setCartCount, setWishlistCount, setSubtotal
+    }
+                                                        = useContext(addToCartContext);
 
     useEffect(() => {
-        const foundProduct = product.find((item) => item.product_id == product_id);
+        const foundProduct = product && product.find((item) => item.product_id == product_id);
         if (foundProduct) {
             setDetails(foundProduct);
         }
     }, [product, product_id]);
-   
-    const handleCart = (details)=>{
-        setCart([...carts,details])
-        console.log(carts)
-    }
-    const handleWishlist = (details)=>{
-        setWishlist([...wishlist,details])
-        console.log(wishlist)
-    }
+
+    const isInWishlist = wishlist.some(item => item.product_id === details.product_id);
+
+    const handleCart = (details) => {
+        setCart([...carts, details]);
+        setCartCount(cartCount + 1);
+        setSubtotal(details.price + subtotal);
+
+    };
+
+    const handleWishlist = (details) => {
+        if (!isInWishlist) {
+            setWishlist([...wishlist, details]);
+            setWishlistCount(wishlistCount + 1);
+            
+        }
+    };
 
     if (!details.product_title) return <p>Loading...</p>;
 
     return (
         <section>
-             <ReuseableHero header="Product Details"/>
-            <div className="flex p-6 border rounded-lg shadow-md bg-white w-7/12 mx-auto relative -top-56 ">
-                <div className="w-2/3 p-5  items-center ">
-
-                <figure>
-                    <img src={details.product_image} alt={details.product_title} className="h-full  w-full object-cover  rounded-md" />
-                </figure>
+            <ReuseableHero header="Product Details" />
+            <div className="flex p-6 border rounded-lg shadow-md bg-white w-7/12 mx-auto relative -top-56">
+                <div className="w-2/3 p-5 items-center">
+                    <figure>
+                        <img src={details.product_image} alt={details.product_title} className="h-full w-full object-cover rounded-md" />
+                    </figure>
                 </div>
                 <div className="w-2/3 px-6 space-y-4">
                     <h2 className="text-2xl font-bold">{details.product_title}</h2>
                     <p className="text-lg font-semibold">Price: ${details.price}</p>
                     <span 
-                        className={`inline-block  px-2 py-1 text-sm font-medium rounded-full ${
+                        className={`inline-block px-2 py-1 text-sm font-medium rounded-full ${
                             details.availability ? 'bg-green-200 border-2 border-green-700 text-green-800' : 'bg-red-200 text-red-800 border-2 border-red-700'
                         }`}
                     >
@@ -84,18 +90,22 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     
-                    <div className="flex gap-2 "> 
-
-                    <button 
-                    onClick={()=>handleCart(details)}
-                    className="mt-4 flex btn px-4 py-2 bg-primary text-white rounded-full font-semibold">
-                        Add to Cart<IoCartOutline className="text-xl font-bold"/>
-                    </button>
-                    
-                    <button onClick={()=>handleWishlist(details)}
-                    className="mt-4  btn-ghost px-4 py-2  text-black rounded-lg font-semibold">
-                        <FaRegHeart className="text-xl font-bold"/>
-                    </button>
+                    <div className="flex gap-2"> 
+                        <button 
+                            onClick={() => handleCart(details)}
+                            className="mt-4 flex btn px-4 py-2 bg-primary text-white rounded-full font-semibold"
+                        >
+                            Add to Cart
+                            <IoCartOutline className="text-xl font-bold" />
+                        </button>
+                        
+                        <button 
+                            onClick={() => handleWishlist(details)}
+                            className="mt-4 btn-ghost px-4 py-2 text-black rounded-lg font-semibold"
+                            disabled={isInWishlist}
+                        >
+                            {isInWishlist ? <FaHeart className="text-xl text-red-500" /> : <FaRegHeart className="text-xl" />}
+                        </button>
                     </div>
                 </div>
             </div>
