@@ -2,7 +2,7 @@ import Proptypes from "prop-types";
 import { FaRegTimesCircle } from "react-icons/fa";
 
 const CartCard = ({ product_image, title, price, description, onRemove }) => (
-    <div className="flex justify-between items-center p-4 border-b rounded-lg bg-gray-50 shadow-sm space-y-2">
+    <div className="flex justify-between items-center p-4 border-b rounded-lg bg-gray-50 shadow-xl">
         <div className="flex gap-2">
             <figure>
                 <img src={product_image} alt=""  className="h-20 object-cover"/>

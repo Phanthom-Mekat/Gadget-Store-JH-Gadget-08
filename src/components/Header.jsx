@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { GiSelfLove } from "react-icons/gi";
 import { useContext } from "react";
 import { addToCartContext } from "./addToCartContexnt";
@@ -69,11 +69,11 @@ const Header = () => {
                                 tabIndex={0}
                                 className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
                                 <div className="card-body">
-                                    <span className="text-lg font-bold"> Items{cartCount}</span>
+                                    <span className="text-lg text-black font-bold"> Items:{cartCount}</span>
                                     <span className="text-info">Subtotal: ${subtotal}</span>
-                                    <div className="card-actions">
-                                        <button className="btn btn-primary btn-block">View cart</button>
-                                    </div>
+                                    <Link to="/dashboard" className="card-actions">
+                                        <button className="btn btn-outline text-primary btn-block">View cart</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
