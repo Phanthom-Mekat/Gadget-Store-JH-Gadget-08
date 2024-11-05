@@ -6,6 +6,9 @@ import Dashboard from "../pages/Dashboard";
 import Blog from "../pages/Blog";
 import ProductPage from "../components/HomePageComponent/products/ProductPage";
 
+import ProductDetails from "../components/detailsPage/ProductDetails";
+// import Details from "../pages/Details";
+
 const route = createBrowserRouter([
     {
       path: "/",
@@ -18,7 +21,7 @@ const route = createBrowserRouter([
             {
               path: "/",
               element: <ProductPage/>,
-              loader:()=>fetch('../../public/products.json')
+              loader:()=>fetch('./products.json')
             }
           ]
       },
@@ -33,6 +36,12 @@ const route = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog/>
+      },
+      {
+            path: "/details/:product_id",
+            element: <ProductDetails/>,
+            loader:()=>fetch('./products.json')
+        
       }
     ]
     },
