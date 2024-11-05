@@ -38,10 +38,10 @@ const route = createBrowserRouter([
         element: <Blog/>
       },
       {
-            path: "/details/:product_id",
-            element: <ProductDetails/>,
-            loader:()=>fetch('./products.json')
-        
+        path: "/details/:product_id",
+        element: <ProductDetails/>,
+        loader:()=>fetch('./products.json')
+    
       }
     ]
     },

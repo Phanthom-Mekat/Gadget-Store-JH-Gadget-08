@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import ReuseableHero from "./ReuseableHero";
+import { addToCartContext } from "../addToCartContexnt";
 
 
 const ProductDetails = () => {
     const product = useLoaderData();
     const { product_id } = useParams();
+    
     const [details, setDetails] = useState({});
+    
+    const {carts,setCart} = useContext(addToCartContext);
+    const {wishlist,setWishlist}=useContext(addToCartContext)
 
     useEffect(() => {
         const foundProduct = product.find((item) => item.product_id == product_id);
@@ -16,6 +21,15 @@ const ProductDetails = () => {
             setDetails(foundProduct);
         }
     }, [product, product_id]);
+   
+    const handleCart = (details)=>{
+        setCart([...carts,details])
+        console.log(carts)
+    }
+    const handleWishlist = (details)=>{
+        setWishlist([...wishlist,details])
+        console.log(wishlist)
+    }
 
     if (!details.product_title) return <p>Loading...</p>;
 
@@ -72,10 +86,14 @@ const ProductDetails = () => {
                     
                     <div className="flex gap-2 "> 
 
-                    <button className="mt-4 flex btn px-4 py-2 bg-primary text-white rounded-full font-semibold">
+                    <button 
+                    onClick={()=>handleCart(details)}
+                    className="mt-4 flex btn px-4 py-2 bg-primary text-white rounded-full font-semibold">
                         Add to Cart<IoCartOutline className="text-xl font-bold"/>
                     </button>
-                    <button className="mt-4  btn-ghost px-4 py-2  text-black rounded-lg font-semibold">
+                    
+                    <button onClick={()=>handleWishlist(details)}
+                    className="mt-4  btn-ghost px-4 py-2  text-black rounded-lg font-semibold">
                         <FaRegHeart className="text-xl font-bold"/>
                     </button>
                     </div>
