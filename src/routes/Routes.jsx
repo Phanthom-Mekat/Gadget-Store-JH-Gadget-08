@@ -7,6 +7,7 @@ import Blog from "../pages/Blog";
 import ProductPage from "../components/HomePageComponent/products/ProductPage";
 
 import ProductDetails from "../components/detailsPage/ProductDetails";
+import NotFound from "./NotFound";
 // import Details from "../pages/Details";
 
 const route = createBrowserRouter([
@@ -42,7 +43,11 @@ const route = createBrowserRouter([
         element: <ProductDetails/>,
         loader:()=>fetch('/products.json')
     
-      }
+      },
+      {
+        path: "*", 
+        element: <NotFound />, 
+      },
     ]
     },
   ]);
