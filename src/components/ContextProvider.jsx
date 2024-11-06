@@ -8,13 +8,15 @@ const ContextProvider = ({children}) => {
     const [cartCount, setCartCount] = useState(0);
     const [wishlistCount, setWishlistCount] = useState(0);
     const [subtotal, setSubtotal] = useState(0);
+    const [modaltotal, setModaltotal] = useState(0);
     return (
         <addToCartContext.Provider 
             value={{carts,setCart,
                 wishlist,setWishlist
                 ,cartCount,setCartCount
                 ,wishlistCount,setWishlistCount
-                ,subtotal,setSubtotal
+                ,subtotal,setSubtotal,
+                modaltotal,setModaltotal
                                                     }}>
                 {children}
         </addToCartContext.Provider>

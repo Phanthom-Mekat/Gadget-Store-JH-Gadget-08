@@ -1,6 +1,7 @@
 
 import { FaClock, FaUser, FaTags } from "react-icons/fa";
 import ReuseableHero from "../components/detailsPage/ReuseableHero";
+import { Helmet } from "react-helmet-async";
 
 const Blog = () => {
     const blogPosts = [
@@ -109,6 +110,10 @@ const Blog = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Blog | Tech Insights & Reviews</title>
+                <meta name="description" content="Tech Insights & Reviews" />
+            </Helmet>
             <ReuseableHero header="Tech Insights & Reviews" />
             <section className="relative -top-64 w-11/12 mx-auto">
                 

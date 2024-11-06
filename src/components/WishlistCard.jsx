@@ -2,10 +2,10 @@ import { FaRegTimesCircle } from "react-icons/fa";
 import Proptypes from "prop-types";
 
 const WishlistCard = ({ product_image, title, price, description, onRemove, onAddToCart }) => (
-    <div className="flex justify-between items-center p-4 border-b rounded-lg bg-gray-50 shadow-xl ">
+    <div className="flex justify-between items-center p-10 border-b rounded-lg bg-gray-50 shadow-xl ">
         <div>
             <figure>
-                <img src={product_image} alt=""  className="h-20 object-cover"/>
+                <img src={product_image} alt=""  className="h-40 object-cover"/>
             </figure>
             <div>
                 <h3 className="text-lg font-semibold">{title}</h3>

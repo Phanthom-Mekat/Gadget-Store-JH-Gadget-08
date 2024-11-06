@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center p-4 pb-20">
+            <Helmet>
+                <title>Page Not Found</title>
+            </Helmet>
             <div className="">
                 <img
                     src="https://img.freepik.com/free-vector/404-error-web-template-with-funny-monster_23-2147788958.jpg?ga=GA1.1.143626560.1657375020&semt=ais_hybrid"

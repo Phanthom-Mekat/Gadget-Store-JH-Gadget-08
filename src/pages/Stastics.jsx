@@ -3,6 +3,7 @@ import CountUp from "react-countup";
 import { Bar } from "react-chartjs-2";
 import Fade from "react-reveal/Fade";
 import { Chart as ChartJS, registerables } from 'chart.js';
+import { Helmet } from "react-helmet-async";
 
 
 ChartJS.register(...registerables);
@@ -49,6 +50,9 @@ const Statistics = () => {
     return (
         <div className="min-h-screen bg-gray-100 p-10 flex flex-col gap-8 items-center">
             {/* Header */}
+            <Helmet>
+                <title>Statistics</title>
+            </Helmet>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Dashboard Statistics</h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl">

@@ -5,6 +5,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import ReuseableHero from "./ReuseableHero";
 import { addToCartContext } from "../addToCartContexnt";
 import { toast,Bounce,Flip } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 
 const ProductDetails = () => {
@@ -12,7 +13,7 @@ const ProductDetails = () => {
     const { product_id } = useParams();
     const [details, setDetails] = useState({});
 
-    const { carts, setCart, wishlist, setWishlist, subtotal, cartCount, wishlistCount, setCartCount, setWishlistCount, setSubtotal
+    const { carts, setCart, wishlist, setWishlist, subtotal, cartCount, wishlistCount, setCartCount, setWishlistCount, setSubtotal,modaltotal,setModaltotal
     }
         = useContext(addToCartContext);
 
@@ -29,6 +30,7 @@ const ProductDetails = () => {
         setCart([...carts, details]);
         setCartCount(cartCount + 1);
         setSubtotal(details.price + subtotal);
+        setModaltotal(details.price + modaltotal);
         toast.success(`Added ${details.product_title} to cart`, {
             position: "top-center",
             autoClose: 2000,
@@ -67,6 +69,9 @@ const ProductDetails = () => {
 
     return (
         <section>
+            <Helmet>
+                <title>{details.product_title}</title>
+            </Helmet>
             <ReuseableHero header="Product Details" />
             <div className="flex p-6 border rounded-lg shadow-md bg-white w-7/12 mx-auto relative -top-56">
                 <div className="w-2/3 p-5 items-center">

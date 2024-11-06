@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import ReuseableHero from "../components/detailsPage/ReuseableHero";
 import { FaSort } from "react-icons/fa";
@@ -6,18 +6,19 @@ import CartCard from "../components/CartCard";
 import WishlistCard from "../components/WishlistCard";
 import { addToCartContext } from "../components/addToCartContexnt";
 import Modal from "react-modal";
+import { Helmet } from "react-helmet-async";
 
 
 Modal.setAppElement('#root');
 
 const Dashboard = () => {
-    const [dashboard, setDashboard] = useState(null);
+    const [dashboard, setDashboard] = useState('carts');
     const [sortedCarts, setSortedCarts] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
 
-    const { subtotal, carts, setCart, setSubtotal, wishlist,setCartCount } = useContext(addToCartContext);
-
+    const { subtotal, carts, setCart, setSubtotal, wishlist,setCartCount,modaltotal,setModaltotal } = useContext(addToCartContext);
+    
     const handleDashboard = (e) => {
         setDashboard(e);
         if (e === 'carts') {
@@ -25,19 +26,25 @@ const Dashboard = () => {
         }
     };
 
+    useEffect(() => {
+        setSortedCarts(carts); 
+    }, [carts]);
+
     const handleSort = () => {
         const sorted = [...sortedCarts].sort((a, b) => b.price - a.price);
         setSortedCarts(sorted);
+        
     };
 
     const handlePurchase = () => {
         setIsModalOpen(true); 
+        setCart([]);
+        setCartCount(0);
+        setSubtotal(0);
     };
 
     const confirmPurchase = () => {
-        setCart([]);
-        setSubtotal(0);
-        setCartCount(0);
+        setModaltotal(0);
         
     };
 
@@ -48,6 +55,9 @@ const Dashboard = () => {
 
     return (
         <div className="mb-10">
+            <Helmet>
+                <title>Dashboard</title>
+            </Helmet>
             <ReuseableHero header="Dashboard" />
             <div className="relative -top-64 flex justify-center items-center gap-3">
                 <NavLink onClick={() => handleDashboard('carts')} className={`${dashboard === 'carts' ? 'btn w-32' : 'btn w-32 bg-primary text-white'}`}>
@@ -136,7 +146,7 @@ const Dashboard = () => {
                     <img src="./Group.png" alt="" />
                     <h2 className="text-xl font-bold mb-2">Payment Successfully</h2>
                     <hr className="w-full " />
-                    <p className="text-gray-600 mb-4">Thanks for purchasing.<br />Total: ${subtotal.toFixed(2)}</p>
+                    <p className="text-gray-600 mb-4">Thanks for purchasing.<br />Total: ${modaltotal.toFixed(2)}</p>
                     <button
                         onClick={() => { confirmPurchase(); closeModal(); }}
                         className="btn w-full py-2 bg-gray-200 text-gray-700 rounded-full font-medium hover:bg-gray-300 focus:outline-none"

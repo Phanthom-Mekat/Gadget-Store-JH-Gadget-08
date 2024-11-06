@@ -4,11 +4,13 @@ import Footer from "../components/Footer";
 import ContextProvider from "../components/ContextProvider";
 import { ToastContainer,Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { HelmetProvider } from "react-helmet-async";
 
 const MainLayout = () => {
 
     return (
         <ContextProvider>
+            <HelmetProvider>
             <div>
                 <Header />
                 <Outlet />
@@ -27,7 +29,7 @@ const MainLayout = () => {
                 theme="light"
                 transition={Bounce}
             />
-
+            </HelmetProvider>
         </ContextProvider>
     );
 };
