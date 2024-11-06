@@ -1,7 +1,7 @@
 import Proptypes from "prop-types";
 import { FaRegTimesCircle } from "react-icons/fa";
 
-const CartCard = ({ product_image, title, price, description, onRemove }) => (
+const CartCard = ({ product_image, title, price, description, onRemove,quantity }) => (
     <div className="flex justify-between items-center p-10 border-b rounded-lg bg-gray-50 shadow-xl">
         <div className="flex gap-2">
             <figure>
@@ -11,6 +11,7 @@ const CartCard = ({ product_image, title, price, description, onRemove }) => (
                 <h3 className="text-lg font-semibold">{title}</h3>
                 <p className="text-gray-500">{description}</p>
                 <p className="text-lg font-bold">Price: ${price}</p>
+                <p className="text-lg font-bold">Quantity: {quantity}</p>
             </div>
         </div>
         <button onClick={onRemove} className="text-red-500">
@@ -25,6 +26,7 @@ CartCard.propTypes = {
     price: Proptypes.number.isRequired,
     description: Proptypes.string.isRequired,
     onRemove: Proptypes.func.isRequired,
+    quantity: Proptypes.number.isRequired
 };
 
 export default CartCard;

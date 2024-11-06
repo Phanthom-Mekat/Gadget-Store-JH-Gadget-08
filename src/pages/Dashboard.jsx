@@ -8,7 +8,6 @@ import { addToCartContext } from "../components/addToCartContexnt";
 import Modal from "react-modal";
 import { Helmet } from "react-helmet-async";
 
-
 Modal.setAppElement('#root');
 
 const Dashboard = () => {
@@ -17,23 +16,36 @@ const Dashboard = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
 
-    const { subtotal, carts, setCart, setSubtotal, wishlist,setCartCount,modaltotal,setModaltotal } = useContext(addToCartContext);
+    const { subtotal, carts, setCart, setSubtotal, wishlist, setCartCount, modaltotal, setModaltotal } = useContext(addToCartContext);
     
+    useEffect(() => {
+        const groupedCarts = carts.reduce((acc, cartItem) => {
+            const found = acc.find(item => item.product_id === cartItem.product_id);
+            if (found) {
+                found.quantity += 1;  
+            } else {
+                acc.push({ ...cartItem, quantity: 1 });
+            }
+            return acc;
+        }, []);
+        setSortedCarts(groupedCarts);
+    }, [carts]);
+
     const handleDashboard = (e) => {
         setDashboard(e);
         if (e === 'carts') {
-            setSortedCarts(carts);
+            setSortedCarts([...sortedCarts]);
         }
     };
 
-    useEffect(() => {
-        setSortedCarts(carts); 
-    }, [carts]);
-
     const handleSort = () => {
-        const sorted = [...sortedCarts].sort((a, b) => b.price - a.price);
+        const sorted = [...sortedCarts].sort((a, b) => {
+            if (b.price === a.price) {
+                return b.quantity - a.quantity;
+            }
+            return b.price - a.price; 
+        });
         setSortedCarts(sorted);
-        
     };
 
     const handlePurchase = () => {
@@ -45,7 +57,6 @@ const Dashboard = () => {
 
     const confirmPurchase = () => {
         setModaltotal(0);
-        
     };
 
     const closeModal = () => {
@@ -71,7 +82,7 @@ const Dashboard = () => {
                 {dashboard === 'carts' && (
                     <div className="w-11/12 mx-auto">
                         <div className="flex justify-between mb-3">
-                            <h2 className="text-xl text-bold ">Cart</h2>
+                            <h2 className="text-xl text-bold">Cart</h2>
                             <div className="flex gap-2 items-center">
                                 <h3>Total Cost: ${subtotal.toFixed(2)}</h3>
                                 <button onClick={handleSort} className="btn flex">
@@ -85,13 +96,14 @@ const Dashboard = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className=" space-y-3 ">
+                        <div className="space-y-3">
                             {sortedCarts.map(cart => (
                                 <CartCard
-                                    key={cart.product_id}
+                                    key={`${cart.product_id}-${Math.random()}`} 
                                     product_image={cart.product_image}
                                     title={cart.title}
                                     price={cart.price}
+                                    quantity={cart.quantity} 
                                     description={cart.description}
                                     onRemove=""
                                 />
@@ -104,7 +116,7 @@ const Dashboard = () => {
                         <div className="flex justify-between mb-3">
                         <h2 className="text-xl text-bold">Wishlist</h2>
                         </div>
-                        <div className=" space-y-3 ">
+                        <div className="space-y-3">
                             {wishlist.map(item => (
                                 <WishlistCard
                                     key={item.product_id}
@@ -120,7 +132,7 @@ const Dashboard = () => {
                 )}
             </div>
 
-                {/* modal  */}
+            {/* modal */}
             <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
@@ -145,7 +157,7 @@ const Dashboard = () => {
                 <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg text-center">
                     <img src="./Group.png" alt="" />
                     <h2 className="text-xl font-bold mb-2">Payment Successfully</h2>
-                    <hr className="w-full " />
+                    <hr className="w-full" />
                     <p className="text-gray-600 mb-4">Thanks for purchasing.<br />Total: ${modaltotal.toFixed(2)}</p>
                     <button
                         onClick={() => { confirmPurchase(); closeModal(); }}
@@ -155,7 +167,6 @@ const Dashboard = () => {
                     </button>
                 </div>
             </Modal>
-
         </div>
     );
 };
